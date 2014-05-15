@@ -16,6 +16,13 @@
 
 
 int pixclk_set(struct fb_info *fbi);
-inline int pixclk_change(struct fb_info *fbi);
+inline int pixclk_change(struct fb_info *fbi)
+{
+#if HW_PIXEL_CLOCK_CHANGE_SUPPORTED == 0
+  return 0;
+#elif HW_PIXEL_CLOCK_CHANGE_SUPPORTED == 1
+  return 1;
+#endif
+}
 
 #endif /* __XYLON_FB_PIXCLK_H__ */
