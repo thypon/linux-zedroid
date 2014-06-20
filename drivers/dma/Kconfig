@@ -41,6 +41,12 @@ config XILINX_DMA
 	engines: Axi Central DMA (memory to memory transfer), Axi DMA (memory and
 	device transfer), and Axi VDMA (memory and video device transfer).
 
+config XILINX_AXIDMA
+	tristate "Xilinx AXI DMA engine support"
+	select DMA_ENGINE
+	---help---
+	Enable support for the Xilinx AXI DMA controllers.
+
 config INTEL_MID_DMAC
 	tristate "Intel MID DMA support for Peripheral DMA controllers"
 	depends on PCI && X86
